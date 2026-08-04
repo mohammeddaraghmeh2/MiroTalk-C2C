@@ -1,0 +1,148 @@
+{
+  "name": "mirotalk-lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-7382f240467a",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "client1": {
+      "index": "0",
+      "shortname": "client1",
+      "longname": "clab-mirotalk-lab-client1",
+      "fqdn": "client1.mirotalk-lab.io",
+      "group": "",
+      "labdir": "/home/mohammed/Projects/mirotalkc2c/containerlab/clab-mirotalk-lab/client1",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-7382f240467a",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/mohammed/Projects/mirotalkc2c/containerlab/clab-mirotalk-lab/client1",
+        "clab-node-longname": "clab-mirotalk-lab-client1",
+        "clab-node-name": "client1",
+        "clab-node-type": "",
+        "clab-owner": "mohammed",
+        "clab-topo-file": "/home/mohammed/Projects/mirotalkc2c/containerlab/lab.clab.yml",
+        "containerlab": "mirotalk-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "client2": {
+      "index": "1",
+      "shortname": "client2",
+      "longname": "clab-mirotalk-lab-client2",
+      "fqdn": "client2.mirotalk-lab.io",
+      "group": "",
+      "labdir": "/home/mohammed/Projects/mirotalkc2c/containerlab/clab-mirotalk-lab/client2",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-7382f240467a",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/mohammed/Projects/mirotalkc2c/containerlab/clab-mirotalk-lab/client2",
+        "clab-node-longname": "clab-mirotalk-lab-client2",
+        "clab-node-name": "client2",
+        "clab-node-type": "",
+        "clab-owner": "mohammed",
+        "clab-topo-file": "/home/mohammed/Projects/mirotalkc2c/containerlab/lab.clab.yml",
+        "containerlab": "mirotalk-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "router": {
+      "index": "2",
+      "shortname": "router",
+      "longname": "clab-mirotalk-lab-router",
+      "fqdn": "router.mirotalk-lab.io",
+      "group": "",
+      "labdir": "/home/mohammed/Projects/mirotalkc2c/containerlab/clab-mirotalk-lab/router",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-7382f240467a",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/mohammed/Projects/mirotalkc2c/containerlab/clab-mirotalk-lab/router",
+        "clab-node-longname": "clab-mirotalk-lab-router",
+        "clab-node-name": "router",
+        "clab-node-type": "",
+        "clab-owner": "mohammed",
+        "clab-topo-file": "/home/mohammed/Projects/mirotalkc2c/containerlab/lab.clab.yml",
+        "containerlab": "mirotalk-lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "router",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:48:db:40",
+          "peer": "z"
+        },
+        "z": {
+          "node": "client1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:77:83:47",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "router",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:22:e8:ff",
+          "peer": "z"
+        },
+        "z": {
+          "node": "client2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:e0:ee:26",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}

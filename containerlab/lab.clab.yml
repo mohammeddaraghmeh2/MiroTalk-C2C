@@ -1,0 +1,15 @@
+name: mirotalk-project
+
+topology:
+  nodes:
+
+    router:
+      kind: linux
+      image: ubuntu:24.04
+
+    server:
+      kind: linux
+      image: ubuntu:24.04
+
+  links:
+    - endpoints: ["router:eth1", "server:eth1"]

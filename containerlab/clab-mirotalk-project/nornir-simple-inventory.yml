@@ -1,0 +1,11 @@
+---
+router:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.2
+server:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.3
