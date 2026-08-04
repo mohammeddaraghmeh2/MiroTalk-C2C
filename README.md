@@ -1,176 +1,228 @@
 <div align="center">
-    <a href="https://c2c.mirotalk.com" target="_blank">
-        <img src="frontend/images/mirotalk-icon.png">
-    </a>
+    <img src="frontend/images/mirotalk-icon.png" width="180">
 </div>
 
-<h1 align="center">MiroTalk C2C</h1>
+<h1 align="center">MiroTalk C2C Deployment Project</h1>
 
 <h3 align="center">
-Self-hosted open-source WebRTC cam-to-cam peer-to-peer video calling platform for immersive 1-to-1 real-time communication with screen sharing and end-to-end encryption.
+Deploying the MiroTalk C2C video conferencing platform using Docker, Containerlab, Proxmox VE, Ubuntu Server, and Ngrok.
 </h3>
 
 <br />
 
 <div align="center">
 
-[![GitHub Stars](https://img.shields.io/github/stars/miroslavpejic85/mirotalkc2c?style=social)](https://github.com/miroslavpejic85/mirotalkc2c/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/miroslavpejic85/mirotalkc2c?style=social)](https://github.com/miroslavpejic85/mirotalkc2c/network/members)
-
-<a href="https://choosealicense.com/licenses/agpl-3.0/">![License: AGPLv3](https://img.shields.io/badge/License-AGPLv3_Open_Source-blue.svg)</a>
-<a href="https://hub.docker.com/r/mirotalk/c2c">![Docker Pulls](https://img.shields.io/docker/pulls/mirotalk/c2c)</a>
-<a href="https://github.com/miroslavpejic85/mirotalkc2c/commits/master">![Last Commit](https://img.shields.io/github/last-commit/miroslavpejic85/mirotalkc2c)</a>
-<a href="https://discord.gg/rgGYfeYW3N">![Discord](https://img.shields.io/badge/Discord-Community-5865F2?logo=discord&logoColor=white)</a>
-<a href="https://www.linkedin.com/in/miroslav-pejic-976a07101/">![Author](https://img.shields.io/badge/Author-Miroslav_Pejic-brightgreen.svg)</a>
+![Project](https://img.shields.io/badge/Project-MiroTalk%20C2C-blue)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white)
+![Containerlab](https://img.shields.io/badge/Containerlab-Virtual%20Network-orange)
+![Proxmox](https://img.shields.io/badge/Proxmox-VE-E57000?logo=proxmox&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)
+![Ngrok](https://img.shields.io/badge/Ngrok-Public%20Tunnel-1F1F1F)
 
 </div>
 
 <br />
 
 <p align="center">
-<strong>MiroTalk C2C</strong> is a self-hosted, open-source WebRTC platform for secure cam-to-cam peer-to-peer video calls and screen sharing. It enables immersive 1-to-1 real-time communication with full end-to-end encryption and can be easily embedded into any website via a simple <a href="https://docs.mirotalk.com/mirotalk-c2c/integration/" target="_blank">iframe integration</a>.
+This repository contains my university deployment project for <strong>MiroTalk C2C</strong>. The project demonstrates how to deploy a secure peer-to-peer WebRTC video conferencing platform using modern virtualization, containerization, and networking technologies.
 </p>
 
 <p align="center">
-    <a href="https://c2c.mirotalk.com">Try Live Demo</a> · <a 
-href="https://c2c.mirotalk.com/privacy">Privacy</a> · <a 
-href="https://docs.mirotalk.com/mirotalk-c2c/self-hosting/">Documentation</a> · <a href="https://discord.gg/rgGYfeYW3N">Discord</a> · <a 
-href="https://github.com/sponsors/miroslavpejic85">Sponsor</a>
+The deployment environment includes Docker containers, Containerlab virtual networking, Proxmox VE virtualization, Ubuntu Server hosting, and Ngrok for secure public access.
 </p>
 
 <br />
 
 <p align="center">
-    <a href="https://c2c.mirotalk.com">
-        <img src="frontend/images/ui.png" alt="MiroTalk C2C - Cam-2-Cam Video Calls">
-    </a>
+    <img src="frontend/images/ui.png" alt="MiroTalk C2C">
 </p>
 
-<hr />
+---
 
-<br />
+# 📌 Project Overview
 
-<details open>
-<summary>⚡ Quick start</summary>
+This project demonstrates the complete deployment of **MiroTalk C2C** from source code into a virtualized infrastructure.
 
-<br/>
+The environment consists of:
 
-**Start in 5 commands:**
+- Ubuntu (WSL)
+- Docker
+- Containerlab
+- Proxmox VE
+- Ubuntu Server Virtual Machine
+- Ngrok
+- GitHub
+
+The application was successfully deployed, tested locally, and published through a secure HTTPS tunnel using Ngrok.
+
+---
+
+# 🏗 Project Architecture
+
+```
+             Client
+                │
+                │
+          Internet / HTTPS
+                │
+              Ngrok
+                │
+                │
+         Ubuntu Server VM
+           (Proxmox VE)
+                │
+          Docker Container
+          MiroTalk C2C
+                │
+      -----------------------
+      │                     │
+   Router               Server
+ (Containerlab)     (Containerlab)
+```
+
+---
+
+# 🖥 Technologies Used
+
+- Ubuntu (WSL)
+- Ubuntu Server
+- Docker
+- Containerlab
+- Proxmox VE
+- VirtualBox
+- Ngrok
+- Git
+- GitHub
+- MiroTalk C2C
+
+---
+
+# ⚡ Deployment Steps
+
+## 1. Clone Repository
 
 ```bash
 git clone https://github.com/miroslavpejic85/mirotalkc2c.git
 cd mirotalkc2c
-cp .env.template .env
-npm install
-npm start
 ```
 
-Open [http://localhost:8080](http://localhost:8080) - done!
+---
 
-</details>
-
-<details>
-<summary>🐳 Docker</summary>
-
-<br/>
-
-![docker](frontend/images/docker.png)
-
-**Prerequisites:** Install [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) - Image available on [Docker Hub](https://hub.docker.com/r/mirotalk/c2c)
+## 2. Configure Environment
 
 ```bash
-git clone https://github.com/miroslavpejic85/mirotalkc2c.git
-cd mirotalkc2c
 cp .env.template .env
-cp docker-compose.template.yml docker-compose.yml
-docker-compose pull    # optional: pull official image
-docker-compose up      # add -d to run in background
 ```
 
-Open [http://localhost:8080](http://localhost:8080) - done!
+---
 
-> **Note:**
-> Edit `.env` and `docker-compose.yml` to customize your setup.
+## 3. Deploy using Docker
 
-</details>
-
-<details>
-<summary>📚 Documentation</summary>
-
-<br/>
-
-For detailed guides and references, visit the **[official documentation](https://docs.mirotalk.com)**:
-
-- [About](https://docs.mirotalk.com/mirotalk-c2c/)
-- [Self-Hosting Guide](https://docs.mirotalk.com/mirotalk-c2c/self-hosting/)
-- [Automation-scripts](https://docs.mirotalk.com/scripts/about/)
-- [Configurations](https://docs.mirotalk.com/mirotalk-c2c/configurations/)
-- [Integration](https://docs.mirotalk.com/mirotalk-c2c/integration/)
-- [Direct Room Join](https://docs.mirotalk.com/mirotalk-c2c/join-room/)
-- [REST API Documentation](https://docs.mirotalk.com/mirotalk-c2c/api/)
-- [Ngrok](https://docs.mirotalk.com/mirotalk-c2c/ngrok/)
-
-</details>
-
-<details open>
-<summary>☁️ Recommended Hosting Providers</summary>
-
-<br/>
-
-| Provider                                                                                    | Description                                                                                                | Link                                                                |
-| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [![Hetzner](frontend/images/hetzner.png)](https://www.hetzner.com)                          | High-performance cloud servers and dedicated root servers with top-tier reliability. Powers our live demo. | [Get €20 Free Credits](https://hetzner.cloud/?ref=XdRifCzCK3bn)     |
-| [![Netcup](frontend/images/netcup.png)](https://www.netcup.com/en/?ref=309627)              | Enterprise-grade performance at unbeatable prices. Scalable and reliable.                                  | [Explore Netcup](https://www.netcup.com/en/?ref=309627)             |
-| [![Hostinger](frontend/images/hostinger.png)](https://hostinger.com/?REFERRALCODE=MIROTALK) | Fast, reliable hosting with 24/7 support and great performance.                                            | [Check out Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK) |
-| [![Contabo](frontend/images/contabo.png)](https://www.dpbolvw.net/click-101027391-14462707) | Top-tier German hosting, dedicated servers, VPS, and web hosting at unbeatable prices.                     | [Explore Contabo](https://www.dpbolvw.net/click-101027391-14462707) |
-
-To set up your own instance of `MiroTalk C2C` on a dedicated cloud server, please refer to our comprehensive [self-hosting documentation](https://docs.mirotalk.com/mirotalk-c2c/self-hosting/).
-
-</details>
-
-<details>
-<summary>🤝 Contributing</summary>
-
-<br/>
-
-Contributions are welcome and greatly appreciated! Whether it's bug fixes, features, or documentation - every contribution helps.
-
-1. Fork the repository
-2. Create your feature branch
-3. Submit a pull request
-
-Have questions? Join our [Discord community](https://discord.gg/rgGYfeYW3N)!
-
-</details>
-
-<details>
-<summary>📄 License</summary>
-
-<br/>
-
-[![AGPLv3](frontend/images/AGPLv3.png)](LICENSE)
-
-MiroTalk C2C is free and open-source under the terms of AGPLv3 (GNU Affero General Public License v3.0). Please `respect the license conditions`, In particular `modifications need to be free as well and made available to the public`. Get a quick overview of the license at [Choose an open source license](https://choosealicense.com/licenses/agpl-3.0/).
-
-To obtain a [MiroTalk C2C license](https://docs.mirotalk.com/license/licensing-options/) with terms different from the AGPLv3, you can conveniently make your [purchase on CodeCanyon](https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005). This allows you to tailor the licensing conditions to better suit your specific requirements.
-
-</details>
-
-<details open>
-<summary>❤️ Support the project</summary>
-
-<br/>
-
-Do you find MiroTalk C2C indispensable for your needs? Join us in supporting this transformative project by [becoming a backer or sponsor](https://github.com/sponsors/miroslavpejic85). By doing so, not only will your logo prominently feature here, but you'll also drive the growth and sustainability of MiroTalk C2C. Your support is vital in ensuring that this valuable platform continues to thrive and remain accessible for all. Make an impact – back MiroTalk C2C today and be part of this exciting journey!
-
-</details>
+```bash
+docker compose up -d
+```
 
 ---
 
-<p align="center">🌐 Explore the full MiroTalk suite (SFU, P2P, BRO, C2C, WEB, CME, ADM) → <a href="https://docs.mirotalk.com/overview/"><strong>MiroTalk Overview</strong></a></p>
+## 4. Deploy Containerlab Topology
+
+```bash
+cd containerlab
+
+sudo containerlab deploy -t lab.clab.yml
+```
 
 ---
 
-<p align="center">
-  Built with ❤️ by <a href="https://www.linkedin.com/in/miroslav-pejic-976a07101/">Miroslav</a> and the open-source community
-</p>
+## 5. Verify Running Containers
+
+```bash
+docker ps
+```
+
+Expected containers:
+
+- mirotalkc2c
+- clab-mirotalk-project-router
+- clab-mirotalk-project-server
+
+---
+
+## 6. Publish Using Ngrok
+
+```bash
+ngrok http 8080
+```
+
+Ngrok generates a secure public HTTPS URL that forwards traffic to:
+
+```
+http://localhost:8080
+```
+
+---
+
+# 📂 Containerlab Topology
+
+```yaml
+name: mirotalk-project
+
+topology:
+  nodes:
+
+    router:
+      kind: linux
+      image: ubuntu:24.04
+
+    server:
+      kind: linux
+      image: ubuntu:24.04
+
+  links:
+    - endpoints:
+      - router:eth1
+      - server:eth1
+```
+
+---
+
+# ✅ Project Features
+
+- Dockerized Deployment
+- Virtual Networking with Containerlab
+- Ubuntu Server hosted on Proxmox VE
+- Public HTTPS access using Ngrok
+- WebRTC Peer-to-Peer Video Calls
+- Screen Sharing
+- End-to-End Encryption
+
+---
+
+# 📷 Project Screenshots
+
+Screenshots included in the report demonstrate:
+
+- Ubuntu WSL
+- Docker Installation
+- Containerlab Deployment
+- Proxmox VE
+- Ubuntu Server
+- Docker Containers
+- Ngrok Tunnel
+- Running MiroTalk Interface
+
+---
+
+# 🎯 Project Result
+
+The project successfully demonstrates a complete deployment pipeline using virtualization, containers, virtual networking, and secure remote access.
+
+---
+
+# 👨‍💻 Author
+
+**Mohammed Daraghmeh**
+
+Computer Science Student
+
+Birzeit University
