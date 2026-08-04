@@ -217,6 +217,3 @@ The project successfully demonstrates a complete deployment pipeline using virtu
 
 
 **Mohammed Daraghmeh**
-
-Computer Science Student
-
