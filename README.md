@@ -219,10 +219,8 @@ The project successfully demonstrates a complete deployment pipeline using virtu
 
 ---
 
-# 👨‍💻 Author
 
 **Mohammed Daraghmeh**
 
 Computer Science Student
 
-Birzeit University
