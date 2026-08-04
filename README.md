@@ -33,10 +33,6 @@ The deployment environment includes Docker containers, Containerlab virtual netw
 
 <br />
 
-<p align="center">
-    <img src="frontend/images/ui.png" alt="MiroTalk C2C">
-</p>
-
 ---
 
 # 📌 Project Overview
